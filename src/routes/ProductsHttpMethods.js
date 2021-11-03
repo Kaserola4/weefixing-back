@@ -15,6 +15,7 @@ router.get(`${API_ENDPOINT}${PRODUCTS_ENDPOINT}/:id`, (req, res) => getProduct(r
 router.post(`${API_ENDPOINT}${PRODUCTS_ENDPOINT}`, (req, res) => addOrEditProduct(req, res));
 
 // EDIT a product
+router.put(`${API_ENDPOINT}${PRODUCTS_ENDPOINT}/:id`, (req, res) => addOrEditProduct(req, res));
 
 // DELETE a product
 router.delete(`${API_ENDPOINT}${PRODUCTS_ENDPOINT}/:id`, (req, res) => deleteProduct(req, res));
