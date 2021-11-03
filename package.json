@@ -1,6 +1,6 @@
 {
-  "name": "pcent",
-  "version": "1.0.0",
+  "name": "pecent",
+  "version": "1.0.1",
   "description": "backend for pcent",
   "main": "index.js",
   "scripts": {
