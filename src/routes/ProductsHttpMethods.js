@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const addOrEditProduct = require('../queries/AddOrEditProduct');
-const deleteProduct = require('../queries/DeleteProduct.js');
-const getProduct = require('../queries/GetProduct');
+const addOrEditProduct = require('../queries/products_queries/AddOrEditProduct');
+const deleteProduct = require('../queries/products_queries/DeleteProduct');
+const getProduct = require('../queries/products_queries/GetProduct');
 
 const API_ENDPOINT = process.env.API_ENDPOINT;
 const PRODUCTS_ENDPOINT = process.env.PRODUCTS_ENDPOINT; 

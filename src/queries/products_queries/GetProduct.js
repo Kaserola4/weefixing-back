@@ -1,8 +1,8 @@
-const mysqlConnection = require('../database/db');
+const mysqlConnection = require('../../database/db');
 
 const getProduct = (req, res) => {
     const { id } = req.params;
-    
+
     let query = (id == 0) ?
         'SELECT * FROM productos;' : 'SELECT * FROM productos WHERE id_producto = ?;';
 
@@ -14,7 +14,6 @@ const getProduct = (req, res) => {
             
         return res.json({ rows });
         
-
     });
 }
 

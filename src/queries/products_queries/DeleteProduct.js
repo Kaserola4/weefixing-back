@@ -1,10 +1,10 @@
-const mysqlConnection = require('../database/db');
+const mysqlConnection = require('../../database/db');
 
 const deleteProduct = (req, res) => {
     const { id } = req.params;
     
-    let query = 'DELETE FROM productos WHERE id_producto = ?;'
-    let checkQuery = 'SELECT * FROM productos WHERE id_producto = ?;'
+    const query = 'DELETE FROM productos WHERE id_producto = ?;';
+    const checkQuery = 'SELECT * FROM productos WHERE id_producto = ?;';
     let hasProduct = true;
 
     mysqlConnection.query(checkQuery, [id], (err, rows) => {

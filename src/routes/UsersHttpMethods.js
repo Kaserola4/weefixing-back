@@ -1,0 +1,24 @@
+const express = require('express');
+const router = express.Router();
+const getUser = require('../queries/users_queries/GetUser');
+const addUser = require('../queries/users_queries/AddUser');
+const updateUser = require('../queries/users_queries/UpdateUser');
+const deleteUser = require('../queries/users_queries/DeleteUser');
+
+const API_ENDPOINT = process.env.API_ENDPOINT;
+const USERS_ENDPOINT = process.env.USERS_ENDPOINT; 
+
+// HTTP methods
+// GET all Users or a single user
+router.get(`${API_ENDPOINT}${USERS_ENDPOINT}/:id`, (req, res) => getUser(req, res));
+
+// POST a User
+router.post(`${API_ENDPOINT}${USERS_ENDPOINT}`, (req, res) => addUser(req, res));
+
+// EDIT a User
+router.put(`${API_ENDPOINT}${USERS_ENDPOINT}/:id`, (req, res) => updateUser(req, res));
+
+// DELETE a User
+router.delete(`${API_ENDPOINT}${USERS_ENDPOINT}/:id`, (req, res) => deleteUser(req, res));
+
+module.exports = router;
