@@ -15,7 +15,7 @@ const updateUser = (req, res) => {
         if (err) return console.log(err);
         
         if(rows[0] == undefined)
-           return  res.json({"message": "No existe un usuario con esa id"});
+           return  res.send({"message": "No existe un usuario con esa id"});
            hasUser = false;
 
     });
@@ -26,7 +26,7 @@ const updateUser = (req, res) => {
             if (err)
                 return console.log(err);
 
-            return res.json({ "message:": "Usuario actualizado" });
+            return res.send({ "message:": "Usuario actualizado" });
 
         });
 }

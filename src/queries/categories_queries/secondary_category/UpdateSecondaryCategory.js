@@ -15,7 +15,7 @@ const updateSecondaryCategory = (req, res) => {
         if (err) return console.log(err);
         
         if(rows[0] == undefined)
-           return  res.json({"message": "No existe una categoría con esa id"});
+           return  res.send({"message": "No existe una categoría con esa id"});
            hasCategory = false;
     });
 
@@ -25,7 +25,7 @@ const updateSecondaryCategory = (req, res) => {
             if (err)
                 return console.log(err);
 
-            return res.json({ "message:": "Categoría actualizada" });
+            return res.send({ "message:": "Categoría actualizada" });
 
         });
 }

@@ -13,7 +13,7 @@ const addUser = (req, res) => {
         if (err)
             return console.log(err);
 
-        return res.json({ "message:": "Usuario añadido" });
+        return res.send({ "message:": "Usuario añadido" });
 
     });
 

@@ -16,7 +16,7 @@ const deleteUser = (req, res) => {
         if (err) return console.log(err);
 
         if (rows[0] == undefined)
-            return res.json({ "message": "No existe un usuario con esa id" });
+            return res.send({ "message": "No existe un usuario con esa id" });
         hasUser = false;
 
     });
@@ -27,7 +27,7 @@ const deleteUser = (req, res) => {
     mysqlConnection.query(query, [id], (err) => {
         if (err) return console.log(err);
 
-        return res.json({ "message": "Usuario eliminado exitosamente" });
+        return res.send({ "message": "Usuario eliminado exitosamente" });
 
 
     });

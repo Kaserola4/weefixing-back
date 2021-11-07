@@ -10,10 +10,9 @@ const getProduct = (req, res) => {
         if (err) return console.log(err);
 
         if(rows[0] == undefined)
-           return  res.json({"message": "No existe un producto con esa id"});
-            
-        return res.json({ rows });
+           return  res.send({"message": "No existe un producto con esa id"});
         
+        return res.send({ rows });
     });
 }
 

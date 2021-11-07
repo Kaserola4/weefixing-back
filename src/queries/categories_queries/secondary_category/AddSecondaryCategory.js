@@ -12,7 +12,7 @@ const addSecondaryCategory = (req, res) => {
         if (err) 
             console.log(err);
 
-        return res.json({"message": "Categoria añadida con éxito"});
+        return res.send({"message": "Categoria añadida con éxito"});
     });
 }
 

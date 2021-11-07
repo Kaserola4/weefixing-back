@@ -16,9 +16,9 @@ const addOrEditProduct = (req, res) => {
                 return console.log(err);
 
             if (updating)
-                return res.json({ "message:": "Producto actualizado" });
+                return res.send({ "message:": "Producto actualizado" });
 
-            return res.json({ "message:": "Producto añadido" });
+            return res.send({ "message:": "Producto añadido" });
 
         });
 

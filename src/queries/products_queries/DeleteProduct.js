@@ -11,7 +11,7 @@ const deleteProduct = (req, res) => {
         if (err) return console.log(err);
         
         if(rows[0] == undefined)
-           return  res.json({"message": "No existe un producto con esa id"});
+           return  res.send({"message": "No existe un producto con esa id"});
            hasProduct = false;
 
     });
@@ -21,7 +21,7 @@ const deleteProduct = (req, res) => {
     mysqlConnection.query(query, [id], (err) => {
         if (err) return console.log(err);
 
-        return res.json({"message": "producto eliminado exitosamente"});
+        return res.send({"message": "producto eliminado exitosamente"});
 
 
     });

@@ -1,9 +1,11 @@
 const express = require('express');
-require('dotenv').config()
+const cors = require('cors');
+require('dotenv').config();
 const app = express();
 const PORT = process.env.port || 3001;
-
-// JSon visualizer
+// cors
+app.use(cors());
+  
 app.use(express.json());
 
 // Routes
