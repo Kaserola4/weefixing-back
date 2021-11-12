@@ -11,8 +11,8 @@ const deleteProduct = (req, res) => {
         if (err) return console.log(err);
         
         if(rows[0] == undefined)
+           console.log("No existo");
            return  res.send({"message": "No existe un producto con esa id"});
-           hasProduct = false;
 
     });
 

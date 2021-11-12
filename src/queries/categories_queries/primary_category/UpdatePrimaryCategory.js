@@ -9,14 +9,15 @@ const updatePrimaryCategory = (req, res) => {
     WHERE id_categoria = ?;
     `;
     const checkQuery = 'SELECT * FROM categorias_primarias WHERE id_categoria = ?;';
-    let hasCategory = true;
+    var hasCategory = true;
 
     mysqlConnection.query(checkQuery, [id], (err, rows) => {
         if (err) return console.log(err);
         
-        if(rows[0] == undefined)
-           return  res.send({"message": "No existe una categoría con esa id"});
-           hasCategory = false;
+        if(rows[0] == undefined){
+            hasCategory = false;
+            return  res.send({"message": "No existe una categoría con esa id"});
+        }
     });
 
     if (!hasCategory) return;

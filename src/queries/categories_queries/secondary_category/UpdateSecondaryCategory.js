@@ -9,25 +9,26 @@ const updateSecondaryCategory = (req, res) => {
     WHERE id_categoria = ?;
     `;
     const checkQuery = 'SELECT * FROM categorias_secundarias WHERE id_categoria = ?;';
-    let hasCategory = true;
+    var hasCategory = true;
 
     mysqlConnection.query(checkQuery, [id], (err, rows) => {
         if (err) return console.log(err);
-        
-        if(rows[0] == undefined)
-           return  res.send({"message": "No existe una categoría con esa id"});
-           hasCategory = false;
+
+        if (rows[0] == undefined) {
+            hasCategory = false;
+            return res.send({ "message": "No existe una categoría con esa id" });
+        }
     });
 
     if (!hasCategory) return;
 
     mysqlConnection.query(query, [nombre_categoria, id], (err) => {
-            if (err)
-                return console.log(err);
+        if (err)
+            return console.log(err);
 
-            return res.send({ "message:": "Categoría actualizada" });
+        return res.send({ "message:": "Categoría actualizada" });
 
-        });
+    });
 }
 
 module.exports = updateSecondaryCategory;

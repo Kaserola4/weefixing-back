@@ -15,8 +15,13 @@ app.use(require('./src/routes/ProductsHttpMethods'));
 // Users routes
 app.use(require('./src/routes/UsersHttpMethods'));
 
+// Cart routes
+app.use(require('./src/routes/CartHttpMethods'));
+
 // Categories routes
 app.use(require('./src/routes/CategoriesHttpMethods'));
+
+
 // FIRE IT UP
 app.listen(PORT, () => {
     console.log(`Listening to http://Localhost:${PORT}`);
