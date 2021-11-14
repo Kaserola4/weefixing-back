@@ -14,7 +14,7 @@ const updateSecondaryCategory = (req, res) => {
     mysqlConnection.query(checkQuery, [id], (err, rows) => {
         if (err) return console.log(err);
 
-        if (rows[0] == undefined) {
+        if (rows[0] === undefined) {
             hasCategory = false;
             return res.send({ "message": "No existe una categoría con esa id" });
         }

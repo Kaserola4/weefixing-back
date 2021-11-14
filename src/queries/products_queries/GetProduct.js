@@ -9,7 +9,7 @@ const getProduct = (req, res) => {
     mysqlConnection.query(query, [id], (err, rows) => {
         if (err) return console.log(err);
 
-        if(rows[0] == undefined)
+        if(rows[0] === undefined)
            return  res.send({"message": "No existe un producto con esa id"});
         
         return res.send({ rows });

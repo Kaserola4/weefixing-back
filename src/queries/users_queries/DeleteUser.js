@@ -10,27 +10,26 @@ const deleteUser = (req, res) => {
     DELETE FROM carritos WHERE id_carrito = @id_carrito_delete;
     `;
     const checkQuery = 'SELECT * FROM usuarios WHERE id_usuarios = ?;';
-    let hasUser = true;
+    var hasUser = true;
 
     mysqlConnection.query(checkQuery, [id], (err, rows) => {
         if (err) return console.log(err);
 
-        if (rows[0] == undefined)
+        if (rows[0] === undefined){
+            hasUser = false;
             return res.send({ "message": "No existe un usuario con esa id" });
-        hasUser = false;
+        }
 
+        if (!hasUser) return;
+
+        mysqlConnection.query(query, [id], (err) => {
+            if (err) return console.log(err);
+
+            return res.send({ "message": "Usuario eliminado exitosamente" });
+
+        });
     });
 
-    if (!hasUser) return;
-
-
-    mysqlConnection.query(query, [id], (err) => {
-        if (err) return console.log(err);
-
-        return res.send({ "message": "Usuario eliminado exitosamente" });
-
-
-    });
 }
 
 module.exports = deleteUser;

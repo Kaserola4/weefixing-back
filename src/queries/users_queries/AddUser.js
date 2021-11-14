@@ -5,6 +5,7 @@ const addUser = (req, res) => {
 
     // TODO: arreglar los problemas con el carrito en mysql
     const query = 'CALL addUser(?, ?, ?, ?);';
+    
     mysqlConnection.query(query, [nombre_usuario, nombres, apellidos, email], (err) => {
         if (err)
             return console.log(err);
