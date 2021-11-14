@@ -1,6 +1,6 @@
 {
-  "name": "pcent",
-  "version": "1.0.0",
+  "name": "pecent",
+  "version": "1.0.2",
   "description": "backend for pcent",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,7 @@
   "author": "bjsk",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "fs": "^0.0.1-security",
