@@ -25,6 +25,9 @@ app.use(`${API_ENDPOINT}`, require('./src/routes/CartHttpMethods'));
 // Categories routes
 app.use(`${API_ENDPOINT}`, require('./src/routes/CategoriesHttpMethods'));
 
+// Carrousel routes
+app.use(`${API_ENDPOINT}`, require('./src/routes/CarrouselHttpMethods'));
+
 // Offers routes
 app.use(`${API_ENDPOINT}`, require('./src/routes/OffersHttpMethods'));
 
