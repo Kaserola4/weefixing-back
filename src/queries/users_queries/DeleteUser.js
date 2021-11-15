@@ -9,7 +9,7 @@ const deleteUser = (req, res) => {
     DELETE FROM usuarios WHERE id_usuario = @id_usuario;
     DELETE FROM carritos WHERE id_carrito = @id_carrito_delete;
     `;
-    const checkQuery = 'SELECT * FROM usuarios WHERE id_usuarios = ?;';
+    const checkQuery = 'SELECT * FROM usuarios WHERE id_usuario = ?;';
     var hasUser = true;
 
     mysqlConnection.query(checkQuery, [id], (err, rows) => {

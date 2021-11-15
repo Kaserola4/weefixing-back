@@ -11,7 +11,7 @@ const PRODUCTS_ENDPOINT = process.env.PRODUCTS_ENDPOINT;
 router.get(`${PRODUCTS_ENDPOINT}/:id`, (req, res) => getProduct(req, res));
 
 // POST a product
-router.post(`${PRODUCTS_ENDPOINT}`, (req, res) => addOrEditProduct(req, res));
+router.post(`${PRODUCTS_ENDPOINT}/:id`, (req, res) => addOrEditProduct(req, res));
 
 // EDIT a product
 router.put(`${PRODUCTS_ENDPOINT}/:id`, (req, res) => addOrEditProduct(req, res));

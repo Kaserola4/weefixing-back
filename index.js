@@ -28,7 +28,5 @@ app.use(`${API_ENDPOINT}`, require('./src/routes/CategoriesHttpMethods'));
 // Offers routes
 app.use(`${API_ENDPOINT}`, require('./src/routes/OffersHttpMethods'));
 
-
-
 // FIRE IT UP
 app.listen(PORT, () => console.log(`Listening to http://Localhost:${PORT}`));
