@@ -2,22 +2,34 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 const app = express();
+
 const PORT = process.env.port || 3001;
+const API_ENDPOINT = process.env.API_ENDPOINT;
+
 // cors
 app.use(cors());
-  
+
+// JSON
 app.use(express.json());
 
 // Routes
 // Products routes
-app.use(require('./src/routes/ProductsHttpMethods'));
+app.use(`${API_ENDPOINT}`, require('./src/routes/ProductsHttpMethods'));
 
 // Users routes
-app.use(require('./src/routes/UsersHttpMethods'));
+app.use(`${API_ENDPOINT}`, require('./src/routes/UsersHttpMethods'));
+
+// Cart routes
+app.use(`${API_ENDPOINT}`, require('./src/routes/CartHttpMethods'));
 
 // Categories routes
-app.use(require('./src/routes/CategoriesHttpMethods'));
+app.use(`${API_ENDPOINT}`, require('./src/routes/CategoriesHttpMethods'));
+
+// Carrousel routes
+app.use(`${API_ENDPOINT}`, require('./src/routes/CarrouselHttpMethods'));
+
+// Offers routes
+app.use(`${API_ENDPOINT}`, require('./src/routes/OffersHttpMethods'));
+
 // FIRE IT UP
-app.listen(PORT, () => {
-    console.log(`Listening to http://Localhost:${PORT}`);
-});
+app.listen(PORT, () => console.log(`Listening to http://Localhost:${PORT}`));

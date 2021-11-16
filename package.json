@@ -1,7 +1,7 @@
 {
-  "name": "pecent",
+  "name": "weefixing",
   "version": "1.0.2",
-  "description": "backend for pcent",
+  "description": "backend for weefixing",
   "main": "index.js",
   "scripts": {
     "start": "SET NODE_ENV=development&& nodemon index.js",
@@ -10,10 +10,11 @@
   "author": "bjsk",
   "license": "MIT",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1"
   },
   "keywords": [],

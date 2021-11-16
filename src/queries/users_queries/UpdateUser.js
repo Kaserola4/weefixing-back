@@ -9,26 +9,26 @@ const updateUser = (req, res) => {
     WHERE id_usuario = ?;
     `;
     const checkQuery = 'SELECT * FROM usuarios WHERE id_usuario = ?;';
-    let hasUser = true;
+    var hasUser = true;
 
     mysqlConnection.query(checkQuery, [id], (err, rows) => {
         if (err) return console.log(err);
-        
-        if(rows[0] == undefined)
-           return  res.send({"message": "No existe un usuario con esa id"});
-           hasUser = false;
 
-    });
+        if (rows[0] == undefined) {
+            hasUser = false;
+            res.send({ "message": "No existe un usuario con esa id" });
+        }
 
-    if (!hasUser) return;
+        if (!hasUser) return;
 
-    mysqlConnection.query(query, [nombre_usuario, nombres, apellidos, email, id], (err) => {
+        mysqlConnection.query(query, [nombre_usuario, nombres, apellidos, email, id], (err) => {
             if (err)
                 return console.log(err);
 
             return res.send({ "message:": "Usuario actualizado" });
 
         });
+    });
 }
 
 module.exports = updateUser;

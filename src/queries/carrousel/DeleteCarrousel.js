@@ -1,10 +1,10 @@
 const mysqlConnection = require('../../database/db');
 
-const deleteProduct = (req, res) => {
+const deleteCarrousel = (req, res) => {
     const { id } = req.params;
 
-    const query = 'DELETE FROM productos WHERE id_producto = ?;';
-    const checkQuery = 'SELECT * FROM productos WHERE id_producto = ?;';
+    const query = 'DELETE FROM carrusel WHERE id_carrusel = ?;';
+    const checkQuery = 'SELECT * FROM carrusel WHERE id_carrusel = ?;';
     var hasProduct = true;
 
     mysqlConnection.query(checkQuery, [id], (err, rows) => {
@@ -12,7 +12,7 @@ const deleteProduct = (req, res) => {
 
         if (rows[0] === undefined) {
             hasProduct = false
-            return res.send({ "message": "No existe un producto con esa id" });
+            return res.send({ "message": "No existe un carrusel con esa id" });
         }
 
         if (!hasProduct) return;
@@ -20,7 +20,7 @@ const deleteProduct = (req, res) => {
         mysqlConnection.query(query, [id], (err) => {
             if (err) return console.log(err);
 
-            return res.send({ "message": "Producto eliminado exitosamente" });
+            return res.send({ "message": "Carrusel eliminado exitosamente" });
 
 
         });
@@ -28,4 +28,4 @@ const deleteProduct = (req, res) => {
 
 }
 
-module.exports = deleteProduct;
+module.exports = deleteCarrousel;
