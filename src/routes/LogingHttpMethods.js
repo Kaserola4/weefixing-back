@@ -1,7 +1,8 @@
 const express = require('express');
-const login = require('../queries/users_queries/login_register/Login');
+const login = require('../queries/users_queries/Login');
 const router = express.Router();
 const LOGIN_ENDPOINT = process.env.LOGIN_ENDPOINT;
+
 
 // HTTP methods
 // POST login
