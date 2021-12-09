@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const getUser = require('../queries/users_queries/GetUser');
-const addUser = require('../queries/users_queries/AddUser');
+const addUser = require('../queries/users_queries/login_register/RegisterUser');
 const updateUser = require('../queries/users_queries/UpdateUser');
 const deleteUser = require('../queries/users_queries/DeleteUser');
 
@@ -11,7 +11,7 @@ const USERS_ENDPOINT = process.env.USERS_ENDPOINT;
 // GET all Users or a single user
 router.get(`${USERS_ENDPOINT}/:id`, (req, res) => getUser(req, res));
 
-// POST a User
+// Register a User
 router.post(`${USERS_ENDPOINT}`, (req, res) => addUser(req, res));
 
 // EDIT a User
